@@ -1,0 +1,24 @@
+# serverless.yml
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: false
+
+service: random-gov
+
+provider:
+  name: aws
+  region: eu-west-1
+  runtime: python3.7
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'secretsmanager:GetSecretValue'
+      Resource: '*'
+
+functions:
+  random-gov:
+    handler: random-gov.handler
