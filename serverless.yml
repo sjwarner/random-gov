@@ -25,5 +25,5 @@ functions:
     events:
       - schedule:
           name: 'RandomGovTrigger'
-          rate: rate(2 hours)
-          enabled: true
+          description: 'Trigger the RandomGov lambda every 2 hours'
+          rate: cron(0 */2 * * ? *)
