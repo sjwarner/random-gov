@@ -22,3 +22,8 @@ provider:
 functions:
   random-gov:
     handler: random-gov.handler
+    events:
+      - schedule:
+          name: 'RandomGovTrigger'
+          rate: rate(2 hours)
+          enabled: true
