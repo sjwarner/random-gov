@@ -2,6 +2,7 @@ import sys
 
 import requests
 from bs4 import BeautifulSoup
+
 import boto3
 import json
 
@@ -22,8 +23,7 @@ def tweet_url(resolved_page, api_keys):
     api = tweepy.API(auth)
 
     soup = BeautifulSoup(resolved_page.content, "html.parser")
-    title = soup.find('meta',  property='og:title')
-    if title:
+    if soup.title:
         title = title['content'] + ' '
     else:
         title = 'Selected page '
