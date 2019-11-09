@@ -24,9 +24,9 @@ def tweet_url(resolved_page, api_keys):
     soup = BeautifulSoup(resolved_page.content, "html.parser")
     title = soup.find('meta',  property='og:title')
     if title:
-        title = title['content'] + ': '
+        title = title['content'] + ' '
     else:
-        title = 'Selected page: '
+        title = 'Selected page '
 
     api.update_status(title + resolved_page.url)
 
