@@ -24,7 +24,7 @@ def tweet_url(resolved_page, api_keys):
 
     soup = BeautifulSoup(resolved_page.content, "html.parser")
     if soup.title:
-        title = soup.title + ' '
+        title = soup.title.string.strip() + ' '
     else:
         title = 'Selected page '
 
